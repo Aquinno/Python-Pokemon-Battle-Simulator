@@ -1,4 +1,3 @@
-#Testar uma batalha de Pokemón
 import random #Para rolar os dados
 import time #Para o sleep
 
