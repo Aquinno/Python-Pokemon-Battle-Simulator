@@ -1,7 +1,7 @@
-import random #Para rolar os dados
-import time #Para o sleep
+import random #To roll the dice
+import time #To use sleep
 
-#Variáveis globais(Mesmo que não seja a melhor opção, por enquanto é como faço confortavelmente)
+#Global variables (Even though it's not the best option, for now, it's how I comfortably do it)
 p = 'Pikachu'
 s = 'Squirtle'
 c = 'Charmander'
@@ -9,265 +9,265 @@ l = 1
 q = 1
 ac = 1
 cu = 1
-vida_monstro = 40
-vida_jogador = 40
+monster_hp = 40
+player_hp = 40
 
-#Funções das ações                
-def ataque():
-    global vida_monstro, vida_jogador, p, s, c, l, q, ac, cu
+#Action functions                
+def attack():
+    global monster_hp, player_hp, p, s, c, l, q, ac, cu
     print(" ")
     print(" ")
     print(" ")
     print(" ")
-    y = random.randint(1,20)
-    vida_monstro = (vida_monstro - y)
-    print("{} causou {} de dano!".format(b,y))
+    y = random.randint(1, 20)
+    monster_hp -= y
+    print("{} caused {} damage!".format(b, y))
     if y == 20:
-        print("Dano crítico!")
+        print("Critical hit!")
     elif y == 1:
-        print("Erro crítico!")
-    print("Vez do Torchic!")
+        print("Critical miss!")
+    print("Torchic's turn!")
     time.sleep(1)
-    z = random.randint(1,20)
-    vida_jogador = (vida_jogador - z)
-    print("Torchic causou {} de dano!".format(z))
+    z = random.randint(1, 20)
+    player_hp -= z
+    print("Torchic caused {} damage!".format(z))
     if z == 20:
-        print("Dano Crítico!")
-    elif z == 20:
-        print("Erro Crítico!")
-    print(" ")
-    print(" ")
-
-def curar():
-    global vida_monstro, vida_jogador, p, s, c, l, q, ac, cu
-    print(" ")
-    print(" ")
-    print(" ")
-    print(" ")
-    w = random.randint(1,10)
-    vida_jogador = vida_jogador + w
-    print("{} curou {} de vida!".format(b,w))
-    print("Vez do Torchic!")
-    time.sleep(1)
-    z = random.randint(1,20)
-    vida_jogador = (vida_jogador - z)
-    print("Torchic causou {} de dano!".format(z))
-    if z == 20:
-        print("Dano Crítico!")
-    elif z == 20:
-        print("Erro Crítico!")
-    print(" ")
-    print(" ")
-    
-def fugir():
-    global vida_monstro, vida_jogador, p, s, c, l, q, ac, cu
-    f = random.randint(1,20)
-    print("Você tirou {} no D20!".format(f))
-    if f >= 15:
-        print("Você fugiu!")
-    else:
-        print("Não conseguiu escapar! Precisa de 15 no dado.")
-        print("Vez do Torchic!")
-        time.sleep(1)
-        z = random.randint(1,20)
-        vida_jogador = (vida_jogador - z)
-        print("Torchic causou {} de dano!".format(z))
-        if z == 20:
-            print("Dano Crítico!")
-        elif z == 20:
-            print("Erro Crítico!")
-        print(" ")
-        print(" ")
-
-def choque():
-    global vida_monstro, vida_jogador, p, s, c, l, q, ac, cu
-    print(" ")
-    print(" ")
-    print(" ")
-    print(" ")
-    y = random.randint(1,35)
-    vida_monstro = (vida_monstro - y)
-    print("{} causou {} de dano com Choque do Trovão!".format(b,y))
-    if y == 35:
-        print("Dano crítico!")
-    elif y == 1:
-        print("Erro crítico!")
-    print("Vez do Torchic!")
-    time.sleep(1)
-    z = random.randint(1,20)
-    vida_jogador = (vida_jogador - z)
-    print("Torchic causou {} de dano!".format(z))
-    if z == 20:
-        print("Dano Crítico!")
+        print("Critical hit!")
     elif z == 1:
-        print("Erro Crítico!")
+        print("Critical miss!")
+    print(" ")
+    print(" ")
+
+def heal():
+    global monster_hp, player_hp, p, s, c, l, q, ac, cu
+    print(" ")
+    print(" ")
+    print(" ")
+    print(" ")
+    w = random.randint(1, 10)
+    player_hp += w
+    print("{} healed {} HP!".format(b, w))
+    print("Torchic's turn!")
+    time.sleep(1)
+    z = random.randint(1, 20)
+    player_hp -= z
+    print("Torchic caused {} damage!".format(z))
+    if z == 20:
+        print("Critical hit!")
+    elif z == 1:
+        print("Critical miss!")
+    print(" ")
+    print(" ")
+
+def run_away():
+    global monster_hp, player_hp, p, s, c, l, q, ac, cu
+    f = random.randint(1, 20)
+    print("You rolled a {} on the D20!".format(f))
+    if f >= 15:
+        print("You escaped!")
+    else:
+        print("Failed to escape! You need a 15 or higher.")
+        print("Torchic's turn!")
+        time.sleep(1)
+        z = random.randint(1, 20)
+        player_hp -= z
+        print("Torchic caused {} damage!".format(z))
+        if z == 20:
+            print("Critical hit!")
+        elif z == 1:
+            print("Critical miss!")
+        print(" ")
+        print(" ")
+
+def thunderbolt():
+    global monster_hp, player_hp, p, s, c, l, q, ac, cu
+    print(" ")
+    print(" ")
+    print(" ")
+    print(" ")
+    y = random.randint(1, 35)
+    monster_hp -= y
+    print("{} caused {} damage with Thunderbolt!".format(b, y))
+    if y == 35:
+        print("Critical hit!")
+    elif y == 1:
+        print("Critical miss!")
+    print("Torchic's turn!")
+    time.sleep(1)
+    z = random.randint(1, 20)
+    player_hp -= z
+    print("Torchic caused {} damage!".format(z))
+    if z == 20:
+        print("Critical hit!")
+    elif z == 1:
+        print("Critical miss!")
     print(" ")
     print(" ")  
   
-def fogo():
-    global vida_monstro, vida_jogador, p, s, c, l, q, ac, cu
+def fireball():
+    global monster_hp, player_hp, p, s, c, l, q, ac, cu
     print(" ")
     print(" ")
     print(" ")
     print(" ")
-    y = random.randint(1,10)
-    vida_monstro = (vida_monstro - y)
-    print("{} causou {} de dano com Bola de Fogo!".format(b,y))
+    y = random.randint(1, 10)
+    monster_hp -= y
+    print("{} caused {} damage with Fireball!".format(b, y))
     if y == 10:
-        print("Dano crítico! Mas não muito efetivo.")
+        print("Critical hit! But not very effective.")
     elif y == 1:
-        print("Erro crítico!")
-    print("Vez do Torchic!")
+        print("Critical miss!")
+    print("Torchic's turn!")
     time.sleep(1)
-    z = random.randint(1,20)
-    vida_jogador = (vida_jogador - z)
-    print("Torchic causou {} de dano!".format(z))
+    z = random.randint(1, 20)
+    player_hp -= z
+    print("Torchic caused {} damage!".format(z))
     if z == 20:
-        print("Dano Crítico!")
+        print("Critical hit!")
     elif z == 1:
-        print("Erro Crítico!")
+        print("Critical miss!")
     print(" ")
     print(" ") 
         
-def agua():
-    global vida_monstro, vida_jogador, p, s, c, l, q, ac, cu
+def water():
+    global monster_hp, player_hp, p, s, c, l, q, ac, cu
     print(" ")
     print(" ")
     print(" ")
     print(" ")
-    y = random.randint(1,45)
-    vida_monstro = (vida_monstro - y)
-    print("{} causou {} de dano com Jato De Água!".format(b,y))
+    y = random.randint(1, 45)
+    monster_hp -= y
+    print("{} caused {} damage with Water Jet!".format(b, y))
     if y == 45:
-        print("Dano crítico! Muito efetivo!")
+        print("Critical hit! Super effective!")
     elif y == 1:
-        print("Erro crítico!")
-    print("Vez do Torchic!")
+        print("Critical miss!")
+    print("Torchic's turn!")
     time.sleep(1)
-    z = random.randint(1,20)
-    vida_jogador = (vida_jogador - z)
-    print("Torchic causou {} de dano!".format(z))
+    z = random.randint(1, 20)
+    player_hp -= z
+    print("Torchic caused {} damage!".format(z))
     if z == 20:
-        print("Dano Crítico!")
+        print("Critical hit!")
     elif z == 1:
-        print("Erro Crítico!")    
+        print("Critical miss!")
     print(" ")
     print(" ") 
 
-#Funções dos Pokemons
+#Pokemon functions
 def charmander():
-    global vida_monstro, vida_jogador, p, s, c, l, q, ac, cu
-    while vida_monstro > 0 or vida_jogador > 0:
+    global monster_hp, player_hp, p, s, c, l, q, ac, cu
+    while monster_hp > 0 or player_hp > 0:
         while q == 1:
-            print("{}: {}".format(b,("="*vida_jogador)))
-            print("Torchic: {}".format("="*vida_monstro))
-            q = int(input("Escolha:\n(1)Atacar\n(2)Curar\n(3)Fugir\n:"))
+            print("{}: {}".format(b,("="*player_hp)))
+            print("Torchic: {}".format("="*monster_hp))
+            q = int(input("Choose:\n(1)Attack\n(2)Heal\n(3)Run Away\n:"))
             if q == 1:
-                ac = int(input("(1)Golpear\n(2)Bola de Fogo\n"))
+                ac = int(input("(1)Strike\n(2)Fireball\n"))
                 if ac == 1:
-                    ataque()
-                    if vida_monstro <= 0 or vida_jogador <= 0:
+                    attack()
+                    if monster_hp <= 0 or player_hp <= 0:
                         break   
                 elif ac == 2:
-                    fogo()
-                    if vida_monstro <= 0 or vida_jogador <= 0:
+                    fireball()
+                    if monster_hp <= 0 or player_hp <= 0:
                         break 
                 else:
                     ac = 1
-                    print("Escolha uma opção válida")
+                    print("Choose a valid option")
                     continue  
             elif q == 2:
-                curar()
+                heal()
                 break     
             elif q == 3:
-                fugir()
+                run_away()
                 break   
             else:
-                print("Escolha uma opção válida!")
+                print("Choose a valid option!")
                 q = 1
                 continue
-        if vida_monstro <= 0 or vida_jogador <= 0:
+        if monster_hp <= 0 or player_hp <= 0:
             break     
 
 def pikachu():
-    global vida_monstro, vida_jogador, p, s, c, l, q, ac, cu
-    while vida_monstro > 0 or vida_jogador > 0:
+    global monster_hp, player_hp, p, s, c, l, q, ac, cu
+    while monster_hp > 0 or player_hp > 0:
         while q == 1:
-            print("{}: {}".format(b,("="*vida_jogador)))
-            print("Torchic: {}".format("="*vida_monstro))
-            q = int(input("Escolha:\n(1)Atacar\n(2)Curar\n(3)Fugir\n:"))
+            print("{}: {}".format(b,("="*player_hp)))
+            print("Torchic: {}".format("="*monster_hp))
+            q = int(input("Choose:\n(1)Attack\n(2)Heal\n(3)Run Away\n:"))
             if q == 1:
-                ac = int(input("(1)Golpear\n(2)Choque do Trovão!\n"))
+                ac = int(input("(1)Strike\n(2)Thunderbolt!\n"))
                 if ac == 1:
-                    ataque()
-                    if vida_monstro <= 0 or vida_jogador <= 0:
+                    attack()
+                    if monster_hp <= 0 or player_hp <= 0:
                         break   
                 elif ac == 2:
-                    choque()
-                    if vida_monstro <= 0 or vida_jogador <= 0:
+                    thunderbolt()
+                    if monster_hp <= 0 or player_hp <= 0:
                         break 
                 else:
                     ac = 1
-                    print("Escolha uma opção válida")
+                    print("Choose a valid option")
                     continue  
             elif q == 2:
-                curar()
+                heal()
                 q = 1
-                if vida_monstro <= 0 or vida_jogador <= 0:
+                if monster_hp <= 0 or player_hp <= 0:
                     break   
             elif q == 3:
-                fugir()
+                run_away()
                 q = 1
-                if vida_monstro <= 0 or vida_jogador <= 0:
+                if monster_hp <= 0 or player_hp <= 0:
                     break   
             else:
-                print("Escolha uma opção válida!")
+                print("Choose a valid option!")
                 q = 1
                 continue
-        if vida_monstro <= 0 or vida_jogador <= 0:
+        if monster_hp <= 0 or player_hp <= 0:
             break   
             
 def squirtle():
-    global vida_monstro, vida_jogador, p, s, c, l, q, ac, cu
-    while vida_monstro > 0 or vida_jogador > 0:
+    global monster_hp, player_hp, p, s, c, l, q, ac, cu
+    while monster_hp > 0 or player_hp > 0:
         while q == 1:
-            print("{}: {}".format(b,("="*vida_jogador)))
-            print("Torchic: {}".format("="*vida_monstro))
-            q = int(input("Escolha:\n(1)Atacar\n(2)Curar\n(3)Fugir\n:"))
+            print("{}: {}".format(b,("="*player_hp)))
+            print("Torchic: {}".format("="*monster_hp))
+            q = int(input("Choose:\n(1)Attack\n(2)Heal\n(3)Run Away\n:"))
             if q == 1:
-                ac = int(input("(1)Golpear\n(2)Jato de Água\n"))
+                ac = int(input("(1)Strike\n(2)Water Jet\n"))
                 if ac == 1:
-                    ataque()
-                    if vida_monstro < 0 or vida_jogador < 0:
+                    attack()
+                    if monster_hp < 0 or player_hp < 0:
                         break   
                 elif ac == 2:
-                    agua()
-                    if vida_monstro < 0 or vida_jogador < 0:
+                    water()
+                    if monster_hp < 0 or player_hp < 0:
                         break 
                 else:
                     ac = 1
-                    print("Escolha uma opção válida")
+                    print("Choose a valid option")
                     continue  
             elif q == 2:
-                curar()
+                heal()
                 break     
             elif q == 3:
-                fugir()
+                run_away()
                 break   
             else:
-                print("Escolha uma opção válida!")
+                print("Choose a valid option!")
                 q = 1
                 continue
-        if vida_monstro <= 0 or vida_jogador <= 0:
+        if monster_hp <= 0 or player_hp <= 0:
             break                       
 
-#Selecionar o Pokemon            
+#Select Pokemon            
 print(" ")
 print(" ")
-print("{}Batalha Pokemon!{}".format(('-=-'*5),('-=-'*5)))
-print("Você começa!")
+print("{}Pokemon Battle!{}".format(('-=-'*5),('-=-'*5)))
+print("You're up first!")
 while l == 1: 
-    l = int(input("Escolha seu Pokemon!\n(1)Pikachu\n(2)Squirtle\n(3)Charmander\nInsira aqui:"))
+    l = int(input("Choose your Pokemon!\n(1)Pikachu\n(2)Squirtle\n(3)Charmander\nEnter here:"))
     if l == 1:
         b = p
         pikachu()
@@ -279,21 +279,15 @@ while l == 1:
         charmander()
     else:
         l = 1
-        print("Escolha uma opção válida!")
+        print("Choose a valid Pokemon!")
         continue
-    if vida_monstro <= 0 or vida_jogador <= 0:
-        break       
 
-#Printar o ganhador
-if vida_jogador > vida_monstro:
-    print(f"{('-=-')*10}{b} ganhou!{('-=-')*10}")
-elif vida_jogador < vida_monstro:
-    print(f"{('-=-')*10}{b} perdeu!{('-=-')*10}")  
-else:     
-    print(f"Empate!")  
-
-#Estética pós-jogo
-print(" ")
-print(" ")
-print("Fim de jogo!")
-print(" ")  
+#Victory or Defeat  
+if monster_hp < player_hp:
+    print(" ")
+    print(" ")
+    print("Congratulations, you won!")
+else:
+    print(" ")
+    print(" ")
+    print("You were defeated!")
